@@ -59,12 +59,12 @@ class Circle extends Figure
 
     public function getArea()
     {
-        return round(pi() * ($this->radius ** 2),2);
+        return round(pi() * ($this->radius ** 2), 2);
     }
 
     public function getPerimeter()
     {
-        return round(2 * pi() * $this->radius,2);
+        return round(2 * pi() * $this->radius, 2);
     }
 }
 
