@@ -94,3 +94,5 @@ class Triangle extends Figure
         return $this->side1 + $this->side2 + $this->base;
     }
 }
+
+?>
