@@ -1,0 +1,66 @@
+<?php
+
+
+class Square {
+    public function GetArea($lenside){
+        return $lenside*$lenside;
+    }
+
+    public function GetPerimeter($lenside){
+
+        return $lenside*4;
+    }
+
+}
+
+class Rectangle{
+
+    public function GetArea($lensideX,$lensideY){
+
+        return $lensideY*$lensideX;
+    }
+
+    public function GetPerimeter($lensideX,$lensideY){
+        return $lensideY*2+$lensideX*2;
+    }
+}
+
+class Circle{
+
+    public function GetArea($radius){
+
+        return M_PI * $radius*$radius;
+    }
+
+    public function GetPerimeter($radius){
+        return 2* M_PI* $radius;
+    }
+}
+
+class TriangleS{
+    public function GetArea($height,$footing){
+
+        return 0.5 * $height * $footing;
+    }
+    
+    public function GetPerimeter($a,$b,$c){
+        
+        return $a+$b+$c;
+    }
+}
+
+$square = new Square();
+echo $square -> getArea(4)."\n";
+echo $square -> GetPerimeter(4)."\n";
+
+$rectangle = new Rectangle();
+echo $rectangle -> getArea(4,5)."\n";
+echo $rectangle -> GetPerimeter(4,5)."\n";
+
+$circle = new Circle();
+echo $circle -> getArea(4)."\n";
+echo $circle -> GetPerimeter(4)."\n";
+
+$triangle = new TriangleS();
+echo $triangle -> getArea(2,5)."\n";
+echo $triangle -> GetPerimeter(2,4,5)."\n";
