@@ -10,7 +10,7 @@ class Rectangle extends Figure
 {
     private $width;
     private $height;
-    public function __construct($width,$height) 
+    public function __construct($width, $height) 
     {
         $this->width = $width;
         $this->height = $height;
@@ -76,7 +76,7 @@ class Triangle extends Figure
     private $side2;
     private $height;
 
-    public function __construct($base,$side1,$side2,$height) 
+    public function __construct($base, $side1, $side2, $height) 
     {
         $this->base = $base;
         $this->side1 = $side1;
