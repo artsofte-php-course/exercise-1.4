@@ -49,7 +49,8 @@ class Square extends Figure
 }
 
 
-class Circle extends Figure{
+class Circle extends Figure
+{
     private $radius;
     public function __construct($radius) 
     {
