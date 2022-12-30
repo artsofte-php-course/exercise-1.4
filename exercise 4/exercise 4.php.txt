@@ -1,0 +1,64 @@
+// Абстрактный класс для фигур
+abstract class Shape {
+    abstract public function getArea();
+    abstract public function getPerimeter();
+}
+// Интерфейс для фигур с периметром
+interface Perimeter {
+    public function getPerimeter();
+}
+
+// Квадрат
+class Square extends Shape implements Perimeter {
+    private $sideLength;
+
+    public function __construct($sideLength) {
+        $this->sideLength = $sideLength;
+    }
+
+    public function getArea() {
+        return pow($this->sideLength, 2);
+    }
+
+    public function getPerimeter() {
+        return $this->sideLength * 4;
+    }
+}
+
+// Прямоугольник
+class Rectangle extends Shape implements Perimeter {
+    private $length;
+    private $width;
+
+    public function __construct($length, $width) {
+        $this->length = $length;
+        $this->width = $width;
+    }
+
+    public function getArea() {
+        return $this->length * $this->width;
+    }
+
+    public function getPerimeter() {
+        return 2 * ($this->length + $this->width);
+    }
+}
+
+// Круг
+class Circle extends Shape {
+    private $radius;
+
+    public function __construct($radius) {
+        $this->radius = $radius;
+    }
+
+    public function getArea() {
+        return pi() * pow($this->radius, 2);
+    }
+
+    // Периметр неприменим к кругу, поэтому оставляем его пустым
+    public function getPerimeter() {}
+}
+
+// Треугольник
+class Triangle extends Shape implements
