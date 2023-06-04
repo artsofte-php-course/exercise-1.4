@@ -1,0 +1,94 @@
+<?php
+abstract class Shape {
+  protected $name;
+  public function __construct($name) {
+    $this->name = $name;
+  }
+  public function getName() {
+    return $this->name;
+  }
+  abstract function getArea();
+  abstract function getPerimeter();
+}
+interface Area {
+  function getArea();
+}
+interface Perimeter {
+  function getPerimeter();
+}
+class Square extends Shape implements Area, Perimeter {
+  protected $side;
+  public function __construct($side) {
+    parent::__construct("square");
+    $this->side = $side;
+  }
+  public function getArea() {
+    return pow($this->side, 2);
+  }
+  public function getPerimeter() {
+    return 4 * $this->side;
+  }
+}
+class Rectangle extends Shape implements Area, Perimeter {
+  protected $length;
+  protected $width;
+  public function __construct($length, $width) {
+    parent::__construct("rectangle");
+    $this->length = $length;
+    $this->width = $width;
+  }
+  public function getArea() {
+    return $this->length * $this->width;
+  }
+  public function getPerimeter() {
+    return 2 * ($this->length + $this->width);
+  }
+}
+class Circle extends Shape implements Area, Perimeter {
+  protected $radius;
+  
+  public function __construct($radius) {
+    parent::__construct("circle");
+    $this->radius = $radius;
+  }
+  public function getArea() {
+    return pi() * pow($this->radius, 2);
+  }
+  public function getPerimeter() {
+    return 2 * pi() * $this->radius;
+  }
+}
+class Triangle extends Shape implements Area, Perimeter {
+  protected $a;
+  protected $b;
+  protected $c;
+  public function __construct($a, $b, $c) {
+    parent::__construct("triangle");
+    $this->a = $a;
+    $this->b = $b;
+    $this->c = $c;
+  }
+  public function getArea() {
+    $s = ($this->a + $this->b + $this->c) / 2;
+    return sqrt($s * ($s - $this->a) * ($s - $this->b) * ($s - $this->c));
+  }
+  public function getPerimeter() {
+    return $this->a + $this->b + $this->c;
+  }
+}
+$square = new Square(напишите длину стороны квадрата.  Пример: 2);
+echo "Area of " . $square->getName() . ": " . $square->getArea() . "\n"; 
+echo "Perimeter of " . $square->getName() . ": " . $square->getPerimeter() . "\n";
+
+$rectangle = new Rectangle( напишите длину прямоугольника.  Пример:4 ,напишите ширину прямоугольника.  Пример:2);
+echo "Area of " . $rectangle->getName() . ": " . $rectangle->getArea() . "\n"; 
+echo "Perimeter of " . $rectangle->getName() . ": " . $rectangle->getPerimeter() . "\n"; 
+
+$circle = new Circle(напишите длину радиуса окружности.  Пример: 2);
+echo "Area of " . $circle->getName() . ": " . $circle->getArea() . "\n"; 
+echo "Perimeter of " . $circle->getName() . ": " . $circle->getPerimeter() . "\n"; 
+
+$triangle = new Triangle(напишите длину одной стороны треугольника.  Пример:2 , напишите длину одной стороны треугольника.  Пример:2 , напишите длину одной стороны треугольника. Пример: 2);
+echo "Area of " . $triangle->getName() . ": " . $triangle->getArea() . "\n"; 
+echo "Perimeter of " . $triangle->getName() . ": " . $triangle->getPerimeter() . "\n"
+?>
